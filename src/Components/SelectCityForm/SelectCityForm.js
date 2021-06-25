@@ -35,7 +35,7 @@ const SelectCityForm = () => {
     setFormData(data);
     setSubmit(true);
 
-    const url = `http://localhost:5000/booking`;
+    const url = `https://dry-everglades-03773.herokuapp.com/booking`;
     // console.log(productData);
     fetch(url, {
       method: "POST",
