@@ -121,22 +121,6 @@ export default class Seat extends Component {
             tooltipProps={{ multiline: true }}
           />
         </div>
-
-        {/* <div style={{ marginTop: "100px" }}>
-          <h1>Economy Class</h1>
-          <SeatPicker
-            addSeatCallback={this.addSeatCallbackContinousCase}
-            removeSeatCallback={this.removeSeatCallback}
-            rows={rows}
-            maxReservableSeats={3}
-            alpha
-            visible
-            selectedByDefault
-            loading={loading}
-            tooltipProps={{ multiline: true }}
-            continuous
-          />
-        </div> */}
       </div>
     );
   }
