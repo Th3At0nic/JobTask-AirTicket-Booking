@@ -3,16 +3,29 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./Components/Home/Home";
 import NoMatch from "./Components/NoMatch/NoMatch";
+import { createContext, useState } from "react";
+import Payment from "./Components/Payment/Payment";
+import Login from "./Components/Login/Login";
+import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
+
+export const UserContext = createContext();
 
 function App() {
+  const [loggedInUser, setLoggedInUser] = useState({});
   return (
-    <section>
+    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
       <Router>
         <Switch>
-          <Route exact path="/Home">
+          <Route path="/Home">
             <Home />
           </Route>
-          <Route path="/">
+          <Route path="/login">
+            <Login />
+          </Route>
+          <PrivateRoute path="/payment">
+            <Payment />
+          </PrivateRoute>
+          <Route exact path="/">
             <Home />
           </Route>
           <Route path="*">
@@ -20,7 +33,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
-    </section>
+    </UserContext.Provider>
   );
 }
 

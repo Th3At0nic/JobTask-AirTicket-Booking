@@ -1,1 +1,11 @@
-
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+.paymentBox {
+  margin: 2rem;
+  border: 2px solid blue;
+  border-radius: 20px;
+  box-sizing: border-box;
+  width: 50%;
+}
