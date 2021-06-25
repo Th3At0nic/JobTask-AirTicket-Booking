@@ -1,13 +1,9 @@
 import React from "react";
-import { useContext } from "react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
-import { UserContext } from "../../App";
-import Payment from "../Payment/Payment";
-// import { useHistory } from "react-router-dom";
+
 const SelectCityForm = () => {
-  // let history = useHistory();
   const [formData, setFormData] = useState([]);
   const [submit, setSubmit] = useState(false);
 
@@ -39,9 +35,17 @@ const SelectCityForm = () => {
     setFormData(data);
     setSubmit(true);
 
-    // history.push("/payment");
+    const url = `http://localhost:5000/booking`;
+    // console.log(productData);
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ data }),
+    }).then((res) => console.log("server side response", res));
   };
-  console.log(formData);
+
   return (
     <section>
       <form onSubmit={handleSubmit(onSubmit)}>
